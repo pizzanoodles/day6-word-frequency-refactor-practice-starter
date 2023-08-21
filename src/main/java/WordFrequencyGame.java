@@ -12,27 +12,14 @@ public class WordFrequencyGame {
         if (inputStr.split(SPACE_DELIMITER).length == 1) {
             return inputStr + " 1";
         } else {
-
             try {
-
-                //split the input string with 1 to n pieces of spaces
                 String[] words = inputStr.split(SPACE_DELIMITER);
-
                 List<Input> inputList = getInputList(words);
-
-
-                //get the wordFrequencyMap for the next step of sizing the same word
                 Map<String, List<Input>> wordFrequencyMap = getListMap(inputList);
-
                 inputList = getWordFrequencyList(wordFrequencyMap);
-
                 inputList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
-
-
                 return buildOutput(inputList);
             } catch (Exception e) {
-
-
                 return "Calculate Error";
             }
         }
