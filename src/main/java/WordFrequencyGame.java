@@ -7,10 +7,11 @@ public class WordFrequencyGame {
     public static final String LINE_BREAK_DELIMITER = "\n";
     public static final String SPACE = " ";
     public static final String CALCULATE_ERROR = "Calculate Error";
+    public static final String ONE_LITERAL = " 1";
 
     public String getResult(String inputStr) {
         if (inputStr.split(SPACE_DELIMITER).length == 1) {
-            return inputStr + " 1";
+            return inputStr + ONE_LITERAL;
         }
         try {
             List<Input> inputList = getInputList(inputStr.split(SPACE_DELIMITER));
