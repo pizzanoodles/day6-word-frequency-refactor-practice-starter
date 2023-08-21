@@ -28,18 +28,20 @@ public class WordFrequencyGame {
 
                 inputList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
 
-                StringJoiner stringJoiner = new StringJoiner(LINE_BREAK_DELIMITER);
-                for (Input w : inputList) {
-                    String s = w.getValue() + SPACE + w.getWordCount();
-                    stringJoiner.add(s);
-                }
-                return stringJoiner.toString();
+
+                return buildOutput(inputList);
             } catch (Exception e) {
 
 
                 return "Calculate Error";
             }
         }
+    }
+
+    private String buildOutput(List<Input> inputList) {
+        return inputList.stream()
+                .map(word -> word.getValue() + SPACE + word.getWordCount())
+                .collect(Collectors.joining(LINE_BREAK_DELIMITER));
     }
 
     private List<Input> getWordFrequencyList(Map<String, List<Input>> wordFrequencyMap) {
