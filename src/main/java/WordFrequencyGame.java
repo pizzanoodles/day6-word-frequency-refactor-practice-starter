@@ -6,6 +6,7 @@ public class WordFrequencyGame {
     public static final String SPACE_DELIMITER = "\\s+";
     public static final String LINE_BREAK_DELIMITER = "\n";
     public static final String SPACE = " ";
+    public static final String CALCULATE_ERROR = "Calculate Error";
 
     public String getResult(String inputStr) {
 
@@ -20,7 +21,7 @@ public class WordFrequencyGame {
                 inputList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
                 return buildOutput(inputList);
             } catch (Exception e) {
-                return "Calculate Error";
+                return CALCULATE_ERROR;
             }
         }
     }
