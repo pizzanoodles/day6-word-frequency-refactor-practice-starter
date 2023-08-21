@@ -25,17 +25,11 @@ public class WordFrequencyGame {
     }
 
     private Map<String, List<Input>> getListMap(List<Input> inputList) {
-        Map<String, List<Input>> map = new HashMap<>();
-        for (Input input : inputList) {
-            if (!map.containsKey(input.getValue())) {
-                ArrayList<Input> arr = new ArrayList<>();
-                arr.add(input);
-                map.put(input.getValue(), arr);
-            } else {
-                map.get(input.getValue()).add(input);
-            }
-        }
-        return map;
+        return inputList.stream()
+                .collect(Collectors.groupingBy(
+                        Input::getValue,
+                        Collectors.mapping(input -> input, Collectors.toList())
+                ));
     }
 
     private String buildOutput(List<Input> inputList) {
