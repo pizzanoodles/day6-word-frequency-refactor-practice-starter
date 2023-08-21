@@ -24,9 +24,7 @@ public class WordFrequencyGame {
                 //get the wordFrequencyMap for the next step of sizing the same word
                 Map<String, List<Input>> wordFrequencyMap = getListMap(inputList);
 
-                List<Input> wordFrequencyList = getWordFrequencyList(wordFrequencyMap);
-
-                inputList = wordFrequencyList;
+                inputList = getWordFrequencyList(wordFrequencyMap);
 
                 inputList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
 
