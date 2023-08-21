@@ -27,14 +27,14 @@ public class WordFrequencyGame {
     private Map<String, List<Input>> getListMap(List<Input> inputList) {
         return inputList.stream()
                 .collect(Collectors.groupingBy(
-                        Input::getValue,
+                        Input::getWord,
                         Collectors.mapping(input -> input, Collectors.toList())
                 ));
     }
 
     private String buildOutput(List<Input> inputList) {
         return inputList.stream()
-                .map(word -> word.getValue() + SPACE + word.getWordCount())
+                .map(word -> word.getWord() + SPACE + word.getWordCount())
                 .collect(Collectors.joining(LINE_BREAK_DELIMITER));
     }
 
