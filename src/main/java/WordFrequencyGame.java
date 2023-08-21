@@ -43,13 +43,12 @@ public class WordFrequencyGame {
             }
         }
     }
+
     private List<Input> getWordFrequencyList(Map<String, List<Input>> wordFrequencyMap) {
-        List<Input> wordFrequencyList = new ArrayList<>();
-        for (Map.Entry<String, List<Input>> entry : wordFrequencyMap.entrySet()) {
-            Input input = new Input(entry.getKey(), entry.getValue().size());
-            wordFrequencyList.add(input);
-        }
-        return wordFrequencyList;
+        return wordFrequencyMap.entrySet()
+                .stream()
+                .map(entry -> new Input(entry.getKey(), entry.getValue().size()))
+                .collect(Collectors.toList());
     }
 
     private List<Input> getInputList(String[] words) {
