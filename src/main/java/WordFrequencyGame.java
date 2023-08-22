@@ -10,11 +10,12 @@ public class WordFrequencyGame {
     public static final String ONE_LITERAL = " 1";
 
     public String getResult(String inputStr) {
-        if (inputStr.split(SPACE_DELIMITER).length == 1) {
+        String[] inputStringSplit = inputStr.split(SPACE_DELIMITER);
+        if (inputStringSplit.length == 1) {
             return inputStr + ONE_LITERAL;
         }
         try {
-            List<Input> inputList = getInputList(inputStr.split(SPACE_DELIMITER));
+            List<Input> inputList = getInputList(inputStringSplit);
             Map<String, List<Input>> wordFrequencyMap = getListMap(inputList);
             inputList = getWordFrequencyList(wordFrequencyMap);
             inputList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
